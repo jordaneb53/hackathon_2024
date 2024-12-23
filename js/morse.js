@@ -3,30 +3,38 @@ function checkInput() {
     const feedback = document.getElementById('feedback'); // Zone de feedback
     const nextStepBtn = document.getElementById('next-step-btn'); // Bouton Étape Suivante
 
-    if (userInput === "PAS QUATRE") {
-        // Affiche un message de succès
-        feedback.textContent = "✅ Correct ! Bien joué.";
-        feedback.style.color = "#00ff00";
+    fetch('verify_password.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams({ password: userInput }),
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.success) {
+                feedback.textContent = data.message;
+                feedback.style.color = "#00ff00";
+                nextStepBtn.style.display = "inline-block";
 
-        // Affiche le bouton Étape Suivante
-        nextStepBtn.style.display = "inline-block";
-
-        // Ajoute une redirection au clic sur le bouton
-        nextStepBtn.onclick = () => {
-            window.location.href = "clef_ceasar.html"; // accéder à l'étape suivante
-        };
-    } else {
-        // Affiche un message d'erreur
-        feedback.textContent = "❌ Incorrect, essayez encore.";
-        feedback.style.color = "#ff0000";
-
-        // Cache le bouton Étape Suivante si la réponse est incorrecte
-        nextStepBtn.style.display = "none";
-    }
+                nextStepBtn.onclick = () => {
+                    window.location.href = "clef_ceasar.html"; // accéder à l'étape suivante
+                };
+            } else {
+                feedback.textContent = data.message;
+                feedback.style.color = "#ff0000";
+                nextStepBtn.style.display = "none";
+            }
+        })
+        .catch((error) => {
+            console.error('Erreur:', error);
+            feedback.textContent = "❌ Une erreur est survenue.";
+            feedback.style.color = "#ff0000";
+            nextStepBtn.style.display = "none";
+        });
 }
 
-
-// animaton du curseur
+// Animation du curseur
 function spark(event) {
     let i = document.createElement('i');
     i.style.left = (event.pageX) + 'px';
@@ -39,12 +47,11 @@ function spark(event) {
 
     setTimeout(() => {
         document.body.removeChild(i);
-    }, 2000)
+    }, 2000);
 }
 
-
 function getRandomTransitionValue() {
-    return `${Math.random() * 400 - 200}px`
+    return `${Math.random() * 400 - 200}px`;
 }
 
 document.addEventListener('mousemove', spark);

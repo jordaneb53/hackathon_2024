@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/morse.css">
     <link rel="stylesheet" href="./style/global.css">
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
    
     
     
@@ -25,8 +25,10 @@
                 Votre navigateur ne supporte pas l'élément audio.
             </audio>
             <div class="input-section">
+                <form method="POST" action="userpassword.php">
                 <input type="text" id="user-input" placeholder="Entrer le code">
                 <button onclick="checkInput()">Vérifier</button>
+            </form>
                 <p id="feedback"></p>
                 <button id="next-step-btn" style="display: none;">Étape suivante</button>
             </div>
