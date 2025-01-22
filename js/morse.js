@@ -44,7 +44,7 @@ function spark(event) {
 
 
 function getRandomTransitionValue() {
-    return `${Math.random() * 400 - 200}px`
+    return `${Math.random() * 100 - 100}px`
 }
 
 document.addEventListener('mousemove', spark);

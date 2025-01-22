@@ -5,96 +5,103 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/global.css">
-    <link rel="stylesheet" href="./style/navbar.css">
-    <link rel="stylesheet" href="./style/footer.css">
-    <link rel="stylesheet" href="./style/rules2.css">
+    <link rel="stylesheet" href="./style/custom.css">
+    <script src="./js/html-script.js"></script>
 
-    <title>Escape-game</title>
+    <title>Escape IT - Règles</title>
     <link rel="icon" type="image/x-icon" href="./icons/logo-mns.svg">
 </head>
 
 <body>
     <!-- NAVIGATION -->
     <header>
-        <div class="nav-all-item">
-            <div id="nav-logo">
-                <a href="./index.html"><img class="logo-navbar" src="./icons/logo-mns.svg" alt="logo"></img></a>
-            </div>
-            <nav>
-                <ul id="nav-conatainer">
-                    <li class="nav-item">
-                        <a class="hover-for-a" href="./index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="hover-for-a" href="./team.html">La TEAM des RAN-gers du code</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+        <nav>
+            <ul class="sidebar">
+                <li class="close-menu-button"onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+                <li><a href="./index.html">Accueil</a></li>
+                <li><a href="./team.html">Les Devs</a></li>
+            </ul>
+            <ul>
+                <li><a href="./index.html"><img class="mns-logo" src="./icons/logo-mns.svg" alt="mns-logo"></a></li>
+                <li class="burg-menu"><a href="#" class="menu-text" onclick="showSidebar()">MENU</a></li>
+                <li class="menu-button burg-menu" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+            </ul>
+        </nav>
     </header>
     <!-- RULES -->
-    <section id="service-header">
-        <div class="title-service">
+    <section id="rule-header">
+        <div class="title-rule">
             <h2>Sauvez Votre Ordinateur ! </h2>
         </div>
-        
     </section>
-    <section id="card-service">
-        <div class="card-service">
+    <section id="card-rule">
+        <div class="card-rule">
             <img class="icon-card" width="40" height="35" src="./icons/Expand.svg" alt="layer-logo">
-            <h3>▶ 60 Minutes Chrono !</h3>
-            <p>Vous êtes face à un défi numérique crucial !!</p>
+            <h3>60 Minutes Chrono !</h3>
+            <p class="text-orange">Vous êtes face à un défi numérique crucial !!</p>
                 <br>
-                <p>▶ Un ransomware infiltre votre système, menaçant de chiffrer vos données personnelles. 
-                <br>▶ Votre ordinateur est en danger : vous avez exactement 60 minutes pour neutraliser ce virus informatique avant qu'il ne verrouille définitivement votre système. 
+                <p>▶ Un ransomware infiltre votre système, menaçant de chiffrer vos données personnelles. <br>
+                <br>▶ Votre ordinateur est en danger : vous avez exactement 60 minutes pour neutraliser ce virus informatique avant qu'il ne verrouille définitivement votre système. <br>
                 <br>▶ Votre expertise et votre rapidité seront vos armes uniques dans cette course contre la montre numérique.</p>
         </div>
-        <div class="card-service" id="card-service-middle">
+        <div class="card-rule" id="card-rule-middle">
             <img class="icon-card" width="40" height="35" src="./icons/Layers.svg" alt="layer-logo">
-            <h3>▶ Mécanisme du Jeu</h3>
-            <p>L'escape game est une mission de cybersécurité complexe, divisée en plusieurs étapes :
+            <h3>Mécanisme du Jeu</h3>
+            <p class="text-orange">L'escape game est une mission de cybersécurité complexe, divisée en plusieurs étapes : </p>
                 <br>
-                <br>▶ Zones de Déverrouillage : Chaque mission réussie vous permettra de récupérer un code, une clé numérique ou un indice.
-                <br>▶ Progression Dynamique : À chaque étape franchie, vous vous rapprochez de la restauration complète de votre système.
+                <p>▶ Zones de Déverrouillage : Chaque mission réussie vous permettra de récupérer un code, une clé numérique ou un indice. <br>
+                <br>▶ Progression Dynamique : À chaque étape franchie, vous vous rapprochez de la restauration complète de votre système. <br>
                 <br>▶ Défi Progressif : Un échec ne signifie pas la fin, mais complique votre parcours ! Le temps vous est compté !!</p>
         </div>
-        <div class="card-service">
+        <div class="card-rule">
             <img class="icon-card" width="40" height="35" src="./icons/Check_Big.svg" alt="layer-logo">
-            <h3>▶ Vos missions</h3>
-            <p>Votre mission se décline en 3 objectifs essentiels :</p>
-            
-                    <p>▶Collecte des Clés de Sécurité : Récupérer l'intégralité des codes nécessaires à la neutralisation du virus.
-                    <br>▶Restauration Système : Rétablissez l'intégrité de votre ordinateur dans son état d'origine, vierge de toute contamination.</p>
-                
+            <h3>Vos missions</h3>
+            <p class="text-orange">Votre mission se décline en 3 objectifs essentiels :</p>
+                <br>
+                    <p>▶Collecte des Clés de Sécurité : Récupérer l'intégralité des codes nécessaires à la neutralisation du virus. <br>
+                    <br>▶Restauration Système : Rétablissez l'intégrité de votre ordinateur dans son état d'origine, vierge de toute contamination.</p>      
         </div>
     </section>
-    <!-- <div class="hero-item-button">
-        <a id="hero-cv-button" href="./rules.html" class="play-button"> <span class="play-icon">▶</span> HACK & PLAY</a>
-    </div> -->
-    <div class="hero-item-button">
-        <a id="hero-cv-button" href="virus.php" class="play-button"> <span class="play-icon">▶</span> HACK & PLAY</a>
+    <div class="play-button">
+        <a id="rule-play-button" href="virus.php" class="play-button"> <span class="play-icon">▶</span> HACK & PLAY</a>
     </div>
     <!-- FOOTER -->
     <footer id="footer-container">
         <div class="footer-main">
-            <div class="footer-logo">
-                <a href="./index.html"><img class="logo-navbar" src="./icons/logo-mns.svg" alt="logo"></img></a>
-            </div>
             <div id="footer-nav-list">
                 <ul>
                     <li class="footer-nav-item">
-                        <a class="hover-for-a" href="./index.html">Home</a>
+                        <a href="./index.html">Accueil</a>
                     </li>
                     <li class="footer-nav-item">
-                        <a class="hover-for-a" href="./team.html">La TEAM des RAN-gers du code</a>
+                        <a href="./team.html">Les Devs</a>
                     </li>
                 </ul>
             </div>
         </div>
         <div class="footer-contact">
             <div class="copyright">
-                <span>© 2024 Jordane et Luc, all rights reserved</span>
+                <span>© 2024 RANGERS DU CODE, all rights reserved</span>
             </div>
         </div>
     </footer>
+    <script>
+        // animaton du curseur
+        function spark(event) {
+            let i = document.createElement('i');
+            i.style.left = (event.pageX) + 'px';
+            i.style.top = (event.pageY) + 'px';
+            i.style.scale = `${Math.random() * 2 + 1}`;
+            i.style.setProperty('--x', getRandomTransitionValue());
+            i.style.setProperty('--y', getRandomTransitionValue());
+            document.body.appendChild(i);
+            setTimeout(() => {
+                document.body.removeChild(i);
+            }, 2000)
+        }
+        function getRandomTransitionValue() {
+            return `${Math.random() * 400 - 200}px`;
+        }
+        document.addEventListener('mousemove', spark);
+    </script>
 </body>

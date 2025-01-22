@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <link rel="stylesheet" href="./style/global.css">
   
   <title>Code César</title>
   <audio autoplay loop>
@@ -11,16 +11,33 @@
     Votre navigateur ne supporte pas le lecteur audio.
   </audio>
   <style>
-    body {
-      text-align: center;
-      padding: 20px;
-      background-image: url('https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ21wM3Q2cDd6bTliaWdleDd0N2QxbTl1MTZxdjZ2MDZiYnFlNGF1cSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7uDtQm2jKdS0VGLg46/giphy.gif');
-      background-size: cover;
-      color: #ffffff;
-      scrollbar: none;
+body {
+  text-align: center;
+  padding: 20px;
+  height: 100vh;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  font-family: "Roboto", serif;
+  background-image: url("./icons/Group.svg");
+  background-size: 40%;
+  background-position: 85%;
+  background-repeat: no-repeat;
+}
+html{
+  background: linear-gradient(180deg, rgba(49,62,116,1) 0%, rgba(23,30,59,1) 100%);
+}
 
-    }
 
+/* Animation de rotation */
+@keyframes rotateBackground {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
     #output {
       font-size: 40px;
       font-weight: bold;
@@ -42,9 +59,15 @@
       margin: 30px 0;
       padding: 20px 20px;
     }
-
+    #userInput{
+      border: 2px solid #ec6834;
+      border-radius: 5px;
+      background-color: black;
+      color: #fff;
+      font-size: 1rem;
+    }
     .highlight {
-      color: orange;
+      color: #FE6519;
     }
 
     .message {
@@ -64,7 +87,7 @@
     h1 {
       font-size: 50px;
       font-weight: bold;
-      color: orange;
+      color: #ec6834;
     }
     #afficherIndice {
       background-color: #f57c00;
@@ -86,28 +109,69 @@
       justify-content: center;
       font-size: 18px;
     }
+    i {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background:  #ec6834;
+    pointer-events: none;
+    animation: animate 2s linear forwards;
+}
+@keyframes animate {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(var(--x), var(--y));
+    }
+}
   </style>
 </head>
-<body>
-   
+<body>  
 <h1>Chiffrement César</h1>
 
 <p id="indice"> <em>Faites le lien entre tous les indices que vous aurez trouvé au cours de cette aventure. Le chiffrement César consiste à décaler chaque lettre d'une certaine distance dans l'alphabet </em> </p>
 <button id="afficherIndice" style="display: none;">Afficher l'indice</button>
 
-<p><em>L'école Metz Numeric School est l'école de référence pour préparer les apprenants aux métiers du numérique dans les domaines de l'informatique, de la cybersécurité et du marketing digital. Les formations proposées peuvent être réalisées en formation initiale (Post-Bac et demandeurs d'emploi) ou en alternance dans le cadre d'un contrat d'apprentissage ou de professionnalisation (après un BAC+2 ou un BAC+3).</em></p>
+<!-- <p><em>L'école Metz Numeric School est l'école de référence pour préparer les apprenants aux métiers du numérique dans les domaines de l'informatique, de la cybersécurité et du marketing digital. Les formations proposées peuvent être réalisées en formation initiale (Post-Bac et demandeurs d'emploi) ou en alternance dans le cadre d'un contrat d'apprentissage ou de professionnalisation (après un BAC+2 ou un BAC+3).</em></p> -->
 <div id="output"></div>
 
 <!-- Champ de saisie pour l'utilisateur -->
 <input id="userInput" placeholder="     Saisir la réponse" type="text"> <br>
 
 <!-- Bouton "Suivant" désactivé par défaut -->
-<button id="nextButton" style="display: none;">Suivant</button>
+<button class="perso-button" id="nextButton" style="display: none;">Suivant</button>
 
 <!-- Message de félicitations (caché au départ) -->
 <div id="congratulationsMessage" class="message" style="display: none;">Félicitations, votre réponse est correcte !</div>
-
+<img src="ressources/projet_3.png" alt="">
 <script>
+function spark(event) {
+    let i = document.createElement('i');
+    i.style.left = (event.pageX) + 'px';
+    i.style.top = (event.pageY) + 'px';
+    i.style.scale = `${Math.random() * 2 + 1}`;
+    i.style.setProperty('--x', getRandomTransitionValue());
+    i.style.setProperty('--y', getRandomTransitionValue());
+
+    document.body.appendChild(i);
+
+    setTimeout(() => {
+        document.body.removeChild(i);
+    }, 2000)
+}
+
+
+function getRandomTransitionValue() {
+    return `${Math.random() * 100 - 100}px`
+}
+
+document.addEventListener('mousemove', spark);
+
+
   // Texte d'origine
   const originalText = "loremipsum";
   const shift = 4; // Décalage de César

@@ -6,16 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/bootstrap.min.css" >
     <link rel="stylesheet" href="./style/profil-game.css">
-    <link rel="stylesheet" href="./style/navbar.css">
-    <link rel="stylesheet" href="./style/footer.css">
     <link rel="stylesheet" href="./style/global.css">
     <title>Profils</title>    
 </head>
 
 <body>
-
-    <p id="indice">indice Penser bien au détails, N'hésiter pas a utiliser le zoom</p>
-  <button id="afficherIndice" style="display: none;">Afficher l'indice</button>
+  <div class="bg-fond">
+    <p id="indice">Indice : Pensez bien aux détails, n'hésitez pas à utiliser le zoom<br>Et n'oubliez pas les anciennes réponses 👀</p>
+  <button id="afficherIndice" style="display: none;">Indice</button>
 
   <script>
     function afficherBouton() {
@@ -31,8 +29,30 @@
 
     // Écouter le clic sur le bouton pour afficher l'indice
     document.getElementById("afficherIndice").addEventListener("click", afficherIndice);
-  </script>
+    // animaton du curseur
+function spark(event) {
+    let i = document.createElement('i');
+    i.style.left = (event.pageX) + 'px';
+    i.style.top = (event.pageY) + 'px';
+    i.style.scale = `${Math.random() * 2 + 1}`;
+    i.style.setProperty('--x', getRandomTransitionValue());
+    i.style.setProperty('--y', getRandomTransitionValue());
 
+    document.body.appendChild(i);
+
+    setTimeout(() => {
+        document.body.removeChild(i);
+    }, 2000)
+}
+
+
+function getRandomTransitionValue() {
+    return `${Math.random() * 100 - 100}px`
+}
+
+document.addEventListener('mousemove', spark);
+  </script>
+  <h1>Retrouvez le profil de la personne qui vous à injecté le virus  </h1>
 
     <div class="mt-5 container text-center">
         <div class="row">
@@ -80,6 +100,10 @@
           </div>
         </div>
       </div>
+
+  </div>
+
+    
        
 </body>
 

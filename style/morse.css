@@ -4,17 +4,18 @@ body {
     display: flex;
     flex-direction: column; /* Permet d'empiler les éléments verticalement */
     min-height: 100vh; /* S'assure que le body prend au moins toute la hauteur de l'écran */
-
+    font-family: "Roboto", serif;
     height: 100vh;
     position: relative;
     overflow: hidden;
     color: white;
-    background-image: url(../icons/Group.svg);
+    background-image: url("../icons/Group.svg");
     background-size: 40%;
+    background-position: 85%;
     background-repeat: no-repeat;
-    background-color: rgb(22, 29, 56);
-    background-position-x: right;
-    background-position-y: 50%;
+}
+html{
+    background: linear-gradient(180deg, rgba(49,62,116,1) 0%, rgba(23,30,59,1) 100%);
 }
 .background {
     flex: 1; /* Force cette section à occuper tout l'espace disponible entre le header et le footer */
@@ -24,14 +25,14 @@ i {
     position: absolute;
     width: 4px;
     height: 4px;
-    background: #0f0;
+    background:  #ec6834;
     pointer-events: none;
     animation: animate 2s linear forwards;
 
 }
 
 div>h1 {
-    color: rgb(255, 150, 0)
+    color:  #ec6834
 }
 
 
@@ -65,7 +66,7 @@ input[type="text"] {
     border: 2px solid rgb(255, 150, 0);
     border-radius: 5px;
     background-color: #111;
-    color: rgb(255, 150, 0);
+    color: #ec6834;
     width: 250px;
 }
 

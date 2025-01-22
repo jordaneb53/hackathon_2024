@@ -1,8 +1,35 @@
+html {
+  background: linear-gradient(180deg, rgba(49,62,116,1) 0%, rgba(23,30,59,1) 100%);
+}
+
+.perso-button {
+  padding: 12px 28px;
+  border-radius: 100px;
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+.perso-button:hover {
+  background-color: white;
+  border: 1px solid white;
+  color: var(--main-color);
+}
+.perso-button:active {
+  background-color: transparent;
+  border: 1px solid var(--main-color);
+  color: white;
+}
+
+
+
 :root {
   /* --main-color: #9eff00; */
-  --main-color: rgba(236, 104, 52, 1);
+  --main-color: #ec6834;
   --main-hover-color: rgb(197, 85, 41, 1);
-  --secondary-color: #1b1b1b;
+  --secondary-color: rgb(27, 27, 27);
   --bg-color: rgb(22, 29, 56);
   --line-color: rgba(236, 104, 52, 0.178);
 }
@@ -15,82 +42,12 @@
   margin: 0;
   padding: 0;
   box-sizing: content-box;
+  font-family: Roboto;
 }
 
 a {
   text-decoration: none;
   color: inherit;
-}
-
-/* HOVER PULSE EFFECT FOR CONTACT */
-.pulse-effect {
-  z-index: 1;
-  position: relative;
-  font-size: inherit;
-  font-family: inherit;
-  color: white;
-  outline: none;
-}
-
-.pulse-effect:hover {
-  cursor: pointer;
-}
-
-.pulse-effect::before {
-  content: '';
-  z-index: -1;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  border: 1px solid hsl(32, 100%, 50%);
-  border-radius: 8px;
-  transform-origin: center;
-  transform: scale(1);
-}
-
-.pulse-effect:hover::before {
-  transition: all 0.75s ease-in-out;
-  transform-origin: center;
-  transform: scale(1.75);
-  opacity: 0;
-}
-
-/* HOVER BARS FOR "a" */
-.hover-for-a {
-  position: relative;
-}
-
-.hover-for-a::before, .hover-for-a::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background-color: var(--main-color);
-  transform: scaleX(0);
-  transition: transform 0.5s ease;
-}
-
-.hover-for-a::before {
-  top: 0;
-  transform-origin: center right;
-}
-
-.hover-for-a:hover::before {
-  transform-origin: center left;
-  transform: scaleX(1);
-}
-
-.hover-for-a::after {
-  bottom: 0;
-  transform-origin: center left;
-}
-
-.hover-for-a:hover::after {
-  transform-origin: center right;
-  transform: scaleX(1);
 }
 
 /* GLITCH TEXT EFFECT */
@@ -272,11 +229,7 @@ clip: rect(173px, 9999px, 166px, 0);
 
 /* Animation fleche scroll */
 .scroll-indicator {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
   transform: translateX(-50%);
-  text-align: center;
 }
 
 .scroll-svg {
@@ -313,22 +266,6 @@ clip: rect(173px, 9999px, 166px, 0);
 
 /* FONT */
 @font-face {
-  font-family: Barlow-Regular;
-  src: url(../font/Barlow/Barlow-Regular.ttf);
-}
-@font-face {
-  font-family: Barlow-Medium;
-  src: url(../font/Barlow/Barlow-Medium.ttf);
-}
-@font-face {
-  font-family: Barlow-SemiBold;
-  src: url(../font/Barlow/Barlow-SemiBold.ttf);
-}
-@font-face {
-  font-family: Barlow-Bold;
-  src: url(../font/Barlow/Barlow-Bold.ttf);
-}
-@font-face {
-  font-family: Barlow-ExtraBold;
-  src: url(../font/Barlow/Barlow-ExtraBold.ttf);
+  font-family: Roboto;
+  src: url(../ressources/font/Roboto-Medium.ttf);
 }

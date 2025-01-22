@@ -1,19 +1,30 @@
 .corps {
-    font-family: Arial, sans-serif;
     margin: 0;  
     padding: 0;
-    background-color: #121234;
+    background-color: linear-gradient(180deg, rgba(49,62,116,1) 0%, rgba(23,30,59,1) 100%);
     color: #fff;
     height: 100vh; 
     display: flex; 
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
+    font-family: "Roboto", serif;
 
+  }
+body{
+  background-image: url("../icons/Group.svg");
+  background-size: 40%;
+  background-position: 85%;
+  background-repeat: no-repeat;
+  font-family: "Roboto", serif;
+  font-size: 1.25rem;
+ 
+ 
+}
     h1 {
       color: #f57c00;
       text-align: center;
+      padding-bottom: 20px;
     }
 
     #quiz-container {
@@ -29,7 +40,7 @@
       box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
     }
 
-    #start-button,
+
     #submit-answer,
     #restart-button,
     #validate-password {
@@ -95,23 +106,57 @@
       text-align: center;
     }
 
-    #start-button,
     #submit-answer,
     #restart-button,
-    #validate-password,
     #afficherIndice {
       background-color: #f57c00;
       color: #fff;
-      padding: 10px 20px;
+      padding:  5px 5px;
+      padding-top: 10px;
       border: none;
       cursor: pointer;
-      border-radius: 10px;
+      border-radius: 2px;
     }
     
-    #submit-answer {
-      margin-left: 10px; /* Décale le bouton "Valider" plus à droite */
+    li.option:hover{
+      background-color: #ec6834;
     }
-
-    #user-answer {
-      margin-left: 50px; /* Décale la barre de saisie "Votre réponse" vers la droite */
+    #password-input.password-input{
+      padding: 15px;
+      border: 2px solid #ec6834;
+      border-radius: 5px;
+      background-color: black;
+      color: white;
+      margin-top: 20px;
+      font-size: 1rem;
     }
+    #validate-password{
+      margin-top: 20px;
+    }
+    #validate-password:hover{
+      background-color: #ec6834;
+      color: white
+    }
+    i {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background:  #ec6834;
+      pointer-events: none;
+      animation: animate 2s linear forwards;
+    }
+    @keyframes animate {
+      0% {
+          opacity: 1;
+          transform: translate(0, 0);
+      }
+    
+      100% {
+          opacity: 0;
+          transform: translate(var(--x), var(--y));
+      }
+    }
+    #instructions{
+      margin-bottom: 20px;
+    }
+    

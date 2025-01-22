@@ -1,7 +1,19 @@
-body {
-    background-color: rgb(22, 29, 56);
+.bg-fond {
+  background-image: url("../icons/Group.svg");
+  background-size: 40%;
+  background-position: 85%;
+  background-repeat: no-repeat;
+  font-family: "Roboto", serif;
+    
 }
-
+body{
+  background: linear-gradient(180deg, rgba(49,62,116,1) 0%, rgba(23,30,59,1) 100%);
+  height: 100vh;
+}
+h1 {
+    color: #ec6834;
+    text-align: center;
+}
 h2 {
     color: #ec6834;
 }
@@ -11,12 +23,31 @@ button {
 }
 
 img {
-    width: 60%;
+    width: 50%;
     border-radius: 10px;
 }
 
 img:hover {
     border: 2px solid #ec6834;
+}
+i {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background:  #ec6834;
+  pointer-events: none;
+  animation: animate 2s linear forwards;
+}
+@keyframes animate {
+  0% {
+      opacity: 1;
+      transform: translate(0, 0);
+  }
+
+  100% {
+      opacity: 0;
+      transform: translate(var(--x), var(--y));
+  }
 }
 
 #afficherIndice {
@@ -31,15 +62,15 @@ img:hover {
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     position: absolute;
     top: 12%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    left: 5%;
+    
   }
     p {
         color: #fff;
     }
   #indice {
     display: none;
-    text-align: center;
+  text-align: center;
   }
 
   #afficherIndice {

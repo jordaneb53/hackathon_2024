@@ -40,10 +40,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Virus</title>
-    <link rel="icon" type="image/x-icon" href="/icons/logo-mns.svg">
+    <link rel="icon" type="image/x-icon" href="./icons/logo-mns.svg">
     <style>
+
+        @font-face {
+          font-family: Roboto;
+          src: url(./ressources/font/Roboto-Medium.ttf);
+        }
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Roboto", serif;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -58,20 +63,21 @@
         }
 
         .avertissement{
-            border : solid 1px black;
-            background-color : #ec6834;
             position:absolute;
             right:10px;
             bottom:10px;
-            border: 1px solid #ec6834;
+            border: 2px solid #ec6834;
             display: flex;
             color: #ec6834;
-            background-color: #1b1b1b;
+            background-color: rgb(22, 29, 56);
             border-radius: 12px;
             opacity: 0.95;
             text-align: center;
             padding: 0 5px 0 5px;
+
         }
+        
+
 
         .timer {
             font-size: 4em;
@@ -87,28 +93,33 @@
 
         .container {
             text-align: center;
-            background: rgba(0, 0, 0, 0.98);
+            background:  rgb(22, 29, 56);
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0px 0px 10px 2px black;
+            border:2px solid  #ec6834;
+
         }
 
         form {
             margin-top: 20px;
         }
 
+       
+
         input[type="text"], input[type="password"] {
             padding: 10px;
             margin: 10px 0;
-            border: none;
+            border: 2px solid #ec6834 ;
+            background-color:black;
+            color: white ;
             border-radius: 5px;
             font-size: 1em;
-            width: 250px;
+            width: 250px;   
         }
 
         input[type="submit"] {
             padding: 10px 20px;
-            background-color: red;
+            background-color:  #ec6834 ;
             color: white;
             border: none;
             border-radius: 5px;
@@ -118,7 +129,7 @@
         }
 
         input[type="submit"]:hover {
-            background-color: darkred;
+            background-color:rgb(190, 78, 34);
         }
 
         .success {
@@ -161,16 +172,14 @@
             color: #ec6834;
             text-decoration: none;
             text-align: center;
-            background: #1b1b1b;
+            background-color: rgb(22, 29, 56);
             padding: 20px;
-            padding-bottom: 50px;
             border-radius: 12px;
-            border: 1px solid #ec6834;
+            border: 2px solid #ec6834;
             width: 50%;
         }
 
         .start p{
-            margin: 0 0 50px 0;
             font-size: 1.3em;
         }
 
@@ -179,18 +188,66 @@
             color: #ec6834;
             text-decoration: none;
             text-align: center;
-            border: 1px solid #ec6834;
+            border: 2px solid #ec6834;
             padding: 20px;
             border-radius: 12px;
+            margin-top: 20px;
+            background-color: rgb(22, 29, 56);
+
         }
 
-        .start-button a{
-            margin: 0 0 50px 0;
-        }
+
 
         .start-button:hover {
             background-color: #ec6834;
-            color: black;
+            color: white;
+        }
+        i {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background:  #ec6834;
+        pointer-events: none;
+        animation: animate 2s linear forwards;
+        }
+            @keyframes animate {
+        0% {
+        opacity: 1;
+        transform: translate(0, 0);
+        }
+    
+        100% {
+        opacity: 0;
+        transform: translate(var(--x), var(--y));
+        }
+    }
+
+    @media (max-width:500px){
+        .avertissement{
+            margin-top:20px;
+            right:10px;
+            border: 2px solid #ec6834;
+            color: #ec6834;
+            background: linear-gradient(180deg, rgba(49,62,116,1) 0%, rgba(23,30,59,1) 100%);
+            border-radius: 12px;
+            opacity: 0.95;
+            text-align: center;
+            padding: 0 5px 0 5px;
+
+        }
+        .start-button{
+            font-size: 1.2em;
+            color: #ec6834;
+            text-decoration: none;
+            text-align: center;
+            border: 2px solid #ec6834;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            margin-bottom:25px;
+            background-color: rgb(22, 29, 56);
+
+        }
         }
 
     </style>
@@ -200,11 +257,33 @@
     <div class="container">
         <div class="timer" id="timer">30:00</div>
 
-        <audio id="alertSound" src="audio/15minutes.mp3" preload="auto"></audio>
+        <audio id="alertSound" src="audio/alert_sound.mp3" preload="auto"></audio>
         <audio id="endSound" src="audio/virus.mp3" preload="auto"></audio>
         <audio id="success" src="audio/success.mp3" preload="auto"></audio>
 
         <script>
+        // animaton du curseur
+                function spark(event) {
+                    let i = document.createElement('i');
+                    i.style.left = (event.pageX) + 'px';
+                    i.style.top = (event.pageY) + 'px';
+                    i.style.scale = `${Math.random() * 2 + 1}`;
+                    i.style.setProperty('--x', getRandomTransitionValue());
+                    i.style.setProperty('--y', getRandomTransitionValue());
+
+                    document.body.appendChild(i);
+
+                    setTimeout(() => {
+                        document.body.removeChild(i);
+                    }, 2000)
+                }
+
+
+                function getRandomTransitionValue() {
+                    return `${Math.random() * 100 - 100}px`
+                }
+
+    document.addEventListener('mousemove', spark);
             let timeLeft = <?php echo $_SESSION['timeLeft']; ?>; // Temps restant
             let elapsedTime = 0; // Temps écoulé depuis le début
             let isVirusDestroyed = <?php echo json_encode($isVirusDestroyed); ?>; // Statut du virus
@@ -231,7 +310,7 @@
                     document.getElementById('start').style.display = 'none';
                 
                     // Appliquer les styles CSS lorsque le virus est détruit
-                    document.documentElement.style.setProperty('background-color', '#161d38');
+                    document.documentElement.style.setProperty('background', 'linear-gradient(180deg, rgba(49,62,116,1) 0%, rgba(23,30,59,1) 100%)');
                     document.body.style.backgroundImage = 'url("icons/Group.svg")'; // Définir l'image en fond
                     document.body.style.backgroundPosition = '85%';
                     document.body.style.backgroundSize = '40%';
@@ -316,7 +395,7 @@
 
         <div id="formContainer">
             <form action="" method="post">
-                <input type="text" name="nom" placeholder="nom.prenom (ex: gamory.théo)" />
+                <input type="text" name="nom" placeholder="nom.prenom (ex: gamory.théo)">
                 <br />
                 <input type="password" name="mdp" placeholder="Mot de passe" />
                 <br />
@@ -330,8 +409,8 @@
 
     <div class="start" id="start" >
         <p>Pour arrêter le virus, résolvez les énigmes, en cliquant sur le bouton ci-dessous, pour trouver le nom.prenom et le mot de passe 👀</p>
+        </div>
         <a class="start-button" href="quizz.html" target="_blank">Démarrer</a>
-    </div>
 
     <div class="avertissement">
         <p>Ne pas fermer cette page, ceci mettra fin à l'escape game.</p>

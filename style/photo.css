@@ -1,18 +1,22 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    margin-top: 50px;
-    max-height: 100vh;
+    height: 100vh;
     scrollbar-width: none;
-    background-image: url(../icons/Group.svg);
+    background-image: url("../icons/Group.svg");
     background-size: 40%;
+    background-position: 85%;
     background-repeat: no-repeat;
-    background-color: rgb(22, 29, 56);
-    background-position-x: right;
-    background-position-y: 50%;
+    font-family: "Roboto", serif;
 
 }
-
+html{
+    background: linear-gradient(180deg, rgba(49,62,116,1) 0%, rgba(23,30,59,1) 100%);
+}
+h1{
+    color: #ec6834;
+    padding: 20px;
+}
 img {
     max-width: 80%;
     max-height: 80vh;
@@ -23,6 +27,8 @@ img {
     /* Animation fluide */
     cursor: pointer;
     /* Indicateur visuel */
+    border: 2px solid  #ec6834;
+    border-radius: 15px;
 }
 
 .zoomed {
@@ -34,15 +40,33 @@ img {
     margin-top: 20px;
     padding: 10px;
     font-size: 16px;
+    border: 2px solid rgb(255, 150, 0);
+    border-radius: 5px;
+    background-color: #111;
+    color: rgb(255, 150, 0);
 }
 
-#next-btn {
-    margin-top: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-}
+
 
 #message {
     color: red;
     margin-top: 10px;
+}
+i {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background:  #ec6834;
+    pointer-events: none;
+    animation: animate 2s linear forwards;
+}
+@keyframes animate {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--x), var(--y));
+    }
 }
