@@ -409,8 +409,8 @@
 
     <div class="start" id="start" >
         <p>Pour arrêter le virus, résolvez les énigmes, en cliquant sur le bouton ci-dessous, pour trouver le nom.prenom et le mot de passe 👀</p>
-        </div>
         <a class="start-button" href="quizz.html" target="_blank">Démarrer</a>
+    </div>
 
     <div class="avertissement">
         <p>Ne pas fermer cette page, ceci mettra fin à l'escape game.</p>
